@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-container">
+    <section class="todo-panel" aria-labelledby="app-title">
+      <header class="app-header">
+        <p class="app-eyebrow">Daily Tasks</p>
+        <h1 id="app-title">Todo App</h1>
+      </header>
+
+      <div class="date-navigation" aria-label="날짜 이동">
+        <button type="button" class="date-button" id="previous-date-button" aria-label="이전 날짜">이전</button>
+        <p class="selected-date" id="selected-date"></p>
+        <button type="button" class="date-button" id="next-date-button" aria-label="다음 날짜">다음</button>
+      </div>
+
+      <div class="week-section" aria-label="주간 Todo 보기">
+        <div class="week-navigation">
+          <button type="button" class="week-button" id="previous-week-button" aria-label="이전 주차">이전 주</button>
+          <p class="week-range" id="week-range"></p>
+          <button type="button" class="week-button" id="next-week-button" aria-label="다음 주차">다음 주</button>
+        </div>
+        <div class="week-days" id="week-days" aria-label="이번 주 날짜 목록"></div>
+      </div>
+
+      <form class="todo-form" id="todo-form" novalidate>
+        <label class="sr-only" for="todo-input">새 Todo 입력</label>
+        <input
+          type="text"
+          id="todo-input"
+          class="todo-input"
+          placeholder="할 일을 입력하세요"
+          autocomplete="off"
+        >
+        <button type="submit" class="add-button">추가</button>
+      </form>
+
+      <div class="filter-tabs" role="tablist" aria-label="Todo 상태 필터">
+        <button type="button" class="filter-tab active" data-filter="all" aria-selected="true">전체</button>
+        <button type="button" class="filter-tab" data-filter="active" aria-selected="false">진행 중</button>
+        <button type="button" class="filter-tab" data-filter="completed" aria-selected="false">완료</button>
+      </div>
+
+      <p class="message" id="message" role="status" aria-live="polite"></p>
+
+      <ul class="todo-list" id="todo-list" aria-label="Todo 목록"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
