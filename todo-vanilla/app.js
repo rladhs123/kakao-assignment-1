@@ -241,6 +241,12 @@ function renderTodos() {
 
 // 입력창의 값으로 새 Todo를 생성합니다.
 function addTodo(todoText) {
+  // 같은 날짜에 같은 텍스트의 Todo가 이미 있는지 확인해 중복 생성을 방지합니다.
+  if (todos.some(todo => todo.text === todoText && todo.date === createDateKey(selectedDate))) {
+    alert("이미 같은 할 일이 있습니다.");
+    return;
+  }
+
   todos.push({
     id: createTodoId(),
     text: todoText,
